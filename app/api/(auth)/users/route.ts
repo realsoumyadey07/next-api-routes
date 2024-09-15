@@ -5,13 +5,14 @@ import { NextResponse } from "next/server";
 
 const ObjectId = require("mongoose").Types.ObjectId;
 
+
 export const GET = async () => {
   try {
     await connectDb();
     const users = await User.find();
     return new NextResponse(JSON.stringify(users), { status: 200 });
   } catch (error: any) {
-    return new NextResponse("Error while fetching all users" + error.message, {
+    return new NextResponse("Error while fetching all users " + error.message, {
       status: 500,
     });
   }
