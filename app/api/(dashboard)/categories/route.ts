@@ -30,7 +30,7 @@ export const GET = async (request: Request) => {
         { status: 400 }
       );
     }
-    return new NextResponse(JSON.stringify(categories), { status: 200 });
+    return new NextResponse(JSON.stringify({categories: categories}), { status: 200 });
   } catch (error: any) {
     return new NextResponse(JSON.stringify({ error: error.message }), {
       status: 500,
